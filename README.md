@@ -43,7 +43,7 @@ The bet is that a carefully designed RP2350-class instrument can be brutally use
 
 The firmware lives in [firmware](firmware/) and currently targets Pico 2/RP2350A.
 
-Implemented today:
+Implemented so far:
 
 - SCPI 1999-style command interface over USB CDC.
 - 1-8 channel PIO/DMA logic analyser.
