@@ -1,0 +1,50 @@
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.swn
+*.bak
+*.tmp
+*.user
+*.log
+.vscode/
+.idea/
+
+# Firmware build outputs
+firmware/build/
+firmware/build-*/
+firmware/Debug/
+firmware/Release/
+firmware/cmake-build-*/
+firmware/*.elf
+firmware/*.bin
+firmware/*.hex
+firmware/*.map
+firmware/*.lst
+firmware/*.d
+firmware/*.o
+firmware/*.obj
+firmware/*.dep
+
+# ESP-IDF firmware outputs
+firmware/esp_firmware/build/
+firmware/esp_firmware/sdkconfig
+firmware/esp_firmware/sdkconfig.old
+firmware/esp_firmware/managed_components/
+firmware/esp_firmware/__pycache__/
+firmware/esp_firmware/*.pyc
+
+# Sigrok driver local test output
+firmware/tools/sigrok/librelab-pico/test_unpack
+
+# Software dependencies and build outputs
+software/node_modules/
+software/out/
+software/dist/
+software/coverage/
+software/playwright-report/
+software/test-results/
+
+# KiCad/editor history
+pcb/**/.history/

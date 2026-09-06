@@ -1,0 +1,99 @@
+/**
+ * @file platform.h
+ * @brief Platform hardware initialization interface
+ *
+ * This file defines the primary hardware initialization interface for
+ * LibreLab Pico firmware.
+ *
+ * @author LibreLab Team
+ * @date 2025
+ */
+
+#ifndef LIBRELAB_LL_PLATFORM_H
+#define LIBRELAB_LL_PLATFORM_H
+
+#include <stdint.h>
+
+/**
+ * @brief Initialize the platform hardware
+ *
+ * Register platform services after the Pico SDK runtime has initialized the
+ * RP2350.
+ *
+ * This function MUST be called immediately after system reset, before any other
+ * system initialization or application code. It establishes the fundamental
+ * hardware configuration that all other subsystems depend upon.
+ *
+ * @note This function must be called before any other platform or application
+ *       initialization functions.
+ * @return None
+ */
+void PLATFORM_init(void);
+
+/**
+ * @brief Get the current system tick value
+ *
+ * @return The current tick value in milliseconds
+ */
+uint32_t PLATFORM_get_tick(void);
+
+/**
+ * @brief Get the current platform time in microseconds
+ *
+ * @return Monotonic time in microseconds since platform start
+ */
+uint64_t PLATFORM_get_time_us(void);
+
+typedef enum {
+    PLATFORM_CLOCK_SYS = 0,
+    PLATFORM_CLOCK_ADC1 = 1,
+    PLATFORM_CLOCK_ADC2 = 2,
+    PLATFORM_CLOCK_TIMER1 = 3,
+    PLATFORM_CLOCK_TIMER2 = 4,
+    PLATFORM_CLOCK_TIMER3 = 5,
+    PLATFORM_CLOCK_TIMER4 = 6,
+    PLATFORM_CLOCK_TIMER5 = 7,
+    PLATFORM_CLOCK_TIMER6 = 8,
+    PLATFORM_CLOCK_TIMER7 = 9,
+    PLATFORM_CLOCK_TIMER8 = 10,
+    PLATFORM_CLOCK_TIMER16 = 11,
+    PLATFORM_CLOCK_TIMER17 = 12,
+    PLATFORM_CLOCK_INVALID = 0xFFFF
+} PLATFORM_PeripheralClock;
+
+/**
+ * @brief Get the clock speed for a specific peripheral clock
+ *
+ * This function retrieves the clock speed for the specified peripheral clock
+ * type. It can be used to determine the frequency of various system clocks (for
+ * now timers)
+ *
+ * @param clock The type of peripheral clock to query (TIM1, TIM2, etc.)
+ *
+ * @return The clock speed in Hz for the specified peripheral clock type,
+ *         or 0 if an invalid type is provided.
+ */
+uint32_t PLATFORM_get_peripheral_clock_speed(PLATFORM_PeripheralClock clock);
+
+/**
+ * @brief Run a platform-specific idle hint while waiting in a busy loop
+ */
+void PLATFORM_idle(void);
+
+/**
+ * @brief Reset the platform/system
+ *
+ * This function performs a software reset of the entire system. It triggers
+ * a system-wide reset that will restart the microcontroller, equivalent to
+ * a hardware reset or power cycle.
+ *
+ * @note This function does not return - the system will be reset immediately
+ * @note All system state will be lost and the system will restart from the
+ *       reset vector
+ * @note This is a non-recoverable operation
+ *
+ * @return None (function does not return)
+ */
+__attribute__((noreturn)) void PLATFORM_reset(void);
+
+#endif // LIBRELAB_LL_PLATFORM_H
