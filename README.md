@@ -25,7 +25,7 @@ Current hardware is targeting a PCB+BOM cost below `₹2500`, roughly `$26.4` at
 
 ## Why This Is Interesting
 
-Saleae's current Logic 8 is an 8-channel USB analyser rated at up to 100 MS/s digital capture, 10 MS/s analog capture, 10-bit analog resolution, long PC-streamed captures, 25+ protocol decoders, trigger/search, measurements, automation, and cross-platform software.[^saleae-product] [^saleae-specs]
+Saleae's current Logic 8 is an 8-channel USB analyser rated at up to 100 MS/s digital capture, 10 MS/s analog capture, 10-bit analog resolution, long PC-streamed captures, 25+ protocol decoders, trigger/search, measurements, automation, and cross-platform software.
 
 LibreLab is aiming at that workflow from the other side of the cost curve:
 
