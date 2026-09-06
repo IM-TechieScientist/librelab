@@ -41,7 +41,7 @@ The bet is that a carefully designed RP2350-class instrument can be brutally use
 
 ## Current Firmware
 
-The firmware lives in [firmware](firmware/) and currently targets Pico 2/RP2350A.
+The firmware lives in [firmware](firmware/) and currently targets Pico 2/RP2350A. Firmware was originally developed by me as part of GSoC 2026.
 
 Implemented so far:
 
